@@ -1,8 +1,8 @@
 package main
 
 import (
-	"html/template"
 	"net/http"
+	"time"
 )
 
 func main() {
@@ -30,21 +30,11 @@ func main() {
 	mux.HandleFunc("/thread/create", createThread)
 
 	server := &http.Server{
-		Addr: "0.0.0.0:8080",
-		Handler: mux,
+		Addr:  					config.Address,
+		Handler:	 			mux,
+		ReadTimeout: 			time.Duration(config.ReadTimeout * int64(time.Second)),
+		WriteTimeout: 			time.Duration(config.WriteTimeout * int64(time.Second)),
+		MaxHeaderBytes: 		1 << 20,
 	}
 	server.ListenAndServe()
-}
-
-//index函数负责生成html文件并将其写入到ResponseWriter结构体中
-func index(w http.ResponseWriter, r *http.Request) {					//请求参数可以通过访问request结构体来得到
-	thread, err := data.Threads(); if err == nil {
-		_, err := session(w, r)
-
-		if err != nil {
-			generateHTML(w, thread, "layout", "public.navbar", "index")
-		} else {
-			generateHTML(w, thread, "layout", "private.navbar", "index")
-		}
-	}
 }
