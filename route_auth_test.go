@@ -66,7 +66,7 @@ func Test_Post_Authenticate(t *testing.T) {
 	mux.HandleFunc("/authenticate", authenticate)
 
 	writer := httptest.NewRecorder()
-	json := strings.NewReader(`{"email": "123456@qq.com", "password": "123456"}`)
+	json := strings.NewReader(`{"email": "1234567@qq.com", "password": "123456"}`)
 	request, _ := http.NewRequest("POST", "/authenticate", json)
 	mux.ServeHTTP(writer, request)
 

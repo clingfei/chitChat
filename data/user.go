@@ -1,6 +1,7 @@
 package data
 
 import (
+	"database/sql"
 	"time"
 )
 
@@ -85,7 +86,15 @@ func (user *User) Create() (err error) {
 		return
 	}
 	defer stmt.Close()
-	err = stmt.QueryRow(createUUID(), user.Name, user.Email, Encrypt(user.Password), time.Now()).Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.CreatedAt)
+	//rows, err := stmt.Exec(createUUID(), user.Name, user.Email, Encrypt(user.Password), time.Now())
+	err = stmt.QueryRow(createUUID(), user.Name, user.Email, Encrypt(user.Password), time.Now()).Scan(&user.Id, &user.Uuid, &user.CreatedAt)
+
+	if err != sql.ErrNoRows {
+		return err
+	}
+
+	err = Db.QueryRow("SELECT id, uuid, created_at FROM users where email = ?", user.Email).Scan(&user.Id, &user.Uuid, &user.CreatedAt)
+
 	return
 }
 

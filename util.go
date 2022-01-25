@@ -54,7 +54,7 @@ func error_message(w http.ResponseWriter, r *http.Request, msg string) {
 }
 
 func session(w http.ResponseWriter, r *http.Request) (sess data.Session, err error){
-	cookie, err := r.Cookie("_cookie")		//如果不存在，cookie为空
+	cookie, err := r.Cookie("cookie")		//如果不存在，cookie为空
 	if err == nil {									//如果存在，检查Uuid是否存在，似乎并没有验证时间
 		sess = data.Session{Uuid: cookie.Value}
 		if ok, _ := sess.Check(); !ok {
