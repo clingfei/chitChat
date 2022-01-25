@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
+	p("ChitChat", version(), "started at", config.Address)
+
 	mux := http.NewServeMux()					//多路复用器
 	files := http.FileServer(http.Dir("/public"))				//创建了一个能够为指定目录中的静态文件服务的处理器，
 

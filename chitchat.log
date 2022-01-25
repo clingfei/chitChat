@@ -1,0 +1,14 @@
+ERROR2022/01/25 22:34:09 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:35:20 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:37:37 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:38:05 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:42:02 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:42:36 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:45:27 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:46:42 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:46:55 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:48:07 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:55:18 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:57:29 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:57:49 util.go:93: Error 1364: Field 'id' doesn't have a default value Cannot create user
+ERROR2022/01/25 22:57:49 util.go:93: sql: no rows in result set Cannot find user

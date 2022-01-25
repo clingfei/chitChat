@@ -22,8 +22,8 @@ type Configuration struct {
 var config Configuration
 var logger *log.Logger
 
-func p(a...interface{}) {
-	fmt.Println(a)
+func p(a ...interface{}) {
+	fmt.Println(a...)
 }
 
 func init() {
