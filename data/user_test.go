@@ -31,3 +31,35 @@ func TestUser_Create(t *testing.T) {
 		t.Errorf("User retrieved is not the same as the one created.")
 	}
 }
+
+func TestUserByEmail(t *testing.T) {
+	if user, err := UserByEmail(users.Email); err != nil {
+		t.Error(err, "Cannot query user by email")
+	} else {
+		fmt.Println(user.Name)
+	}
+}
+
+func TestUserByUUID(t *testing.T) {
+	user, err := UserByEmail(users.Email)
+	if err != nil {
+		t.Error(err, "Cannot query user by email")
+	}
+	if _, err = UserByUUID(user.Uuid); err != nil {
+		t.Error(err, "Cannot query user by uuid")
+	}
+}
+
+func TestUser_Delete(t *testing.T) {
+	err := users.Delete()
+	if err != nil {
+		t.Error(err, "Cannot delete user")
+	}
+}
+
+func TestUserDeleteAll(t *testing.T) {
+	err := UserDeleteAll()
+	if err != nil {
+		t.Error(err, "Cannot delete all")
+	}
+}

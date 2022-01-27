@@ -24,6 +24,7 @@ func main() {
 	mux.HandleFunc("/logout", logout)
 	mux.HandleFunc("/signup", logout)
 	mux.HandleFunc("/signup_account", signupAccount)
+	mux.HandleFunc("/authenticate", authenticate)
 
 	//thread
 	mux.HandleFunc("/thread/new", newThread)
